@@ -32,12 +32,14 @@
             this.UI_DeleteButton = new System.Windows.Forms.Button();
             this.UI_LoadFileButton = new System.Windows.Forms.Button();
             this.UI_SaveFileButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.UI_InputBox = new System.Windows.Forms.TextBox();
+            this.UI_ListBox = new System.Windows.Forms.ListBox();
+            this.UI_TrackBar = new System.Windows.Forms.TrackBar();
             this.UI_SelectedLabel = new System.Windows.Forms.Label();
             this.UI_ListLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.UI_TrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // UI_AddButton
@@ -48,6 +50,7 @@
             this.UI_AddButton.TabIndex = 0;
             this.UI_AddButton.Text = "Add";
             this.UI_AddButton.UseVisualStyleBackColor = true;
+            this.UI_AddButton.Click += new System.EventHandler(this.UI_AddButton_Click);
             // 
             // UI_DeleteButton
             // 
@@ -76,28 +79,30 @@
             this.UI_SaveFileButton.Text = "Save File";
             this.UI_SaveFileButton.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // UI_InputBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.UI_InputBox.Location = new System.Drawing.Point(12, 12);
+            this.UI_InputBox.Name = "UI_InputBox";
+            this.UI_InputBox.Size = new System.Drawing.Size(100, 20);
+            this.UI_InputBox.TabIndex = 4;
             // 
-            // listBox1
+            // UI_ListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(118, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 5;
+            this.UI_ListBox.FormattingEnabled = true;
+            this.UI_ListBox.Location = new System.Drawing.Point(118, 12);
+            this.UI_ListBox.Name = "UI_ListBox";
+            this.UI_ListBox.Size = new System.Drawing.Size(120, 95);
+            this.UI_ListBox.TabIndex = 5;
             // 
-            // trackBar1
+            // UI_TrackBar
             // 
-            this.trackBar1.Location = new System.Drawing.Point(244, 12);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 109);
-            this.trackBar1.TabIndex = 6;
+            this.UI_TrackBar.Location = new System.Drawing.Point(244, 12);
+            this.UI_TrackBar.Name = "UI_TrackBar";
+            this.UI_TrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.UI_TrackBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UI_TrackBar.Size = new System.Drawing.Size(45, 109);
+            this.UI_TrackBar.TabIndex = 6;
+            this.UI_TrackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // UI_SelectedLabel
             // 
@@ -117,6 +122,10 @@
             this.UI_ListLabel.TabIndex = 8;
             this.UI_ListLabel.Text = "label2";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,16 +133,16 @@
             this.ClientSize = new System.Drawing.Size(308, 181);
             this.Controls.Add(this.UI_ListLabel);
             this.Controls.Add(this.UI_SelectedLabel);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.UI_TrackBar);
+            this.Controls.Add(this.UI_ListBox);
+            this.Controls.Add(this.UI_InputBox);
             this.Controls.Add(this.UI_SaveFileButton);
             this.Controls.Add(this.UI_LoadFileButton);
             this.Controls.Add(this.UI_DeleteButton);
             this.Controls.Add(this.UI_AddButton);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UI_TrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,11 +154,13 @@
         private System.Windows.Forms.Button UI_DeleteButton;
         private System.Windows.Forms.Button UI_LoadFileButton;
         private System.Windows.Forms.Button UI_SaveFileButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TextBox UI_InputBox;
+        private System.Windows.Forms.ListBox UI_ListBox;
+        private System.Windows.Forms.TrackBar UI_TrackBar;
         private System.Windows.Forms.Label UI_SelectedLabel;
         private System.Windows.Forms.Label UI_ListLabel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
