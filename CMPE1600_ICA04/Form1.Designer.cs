@@ -70,6 +70,7 @@
             this.UI_LoadFileButton.TabIndex = 3;
             this.UI_LoadFileButton.Text = "Load File";
             this.UI_LoadFileButton.UseVisualStyleBackColor = true;
+            this.UI_LoadFileButton.Click += new System.EventHandler(this.UI_LoadFileButton_Click);
             // 
             // UI_SaveFileButton
             // 
@@ -79,6 +80,7 @@
             this.UI_SaveFileButton.TabIndex = 4;
             this.UI_SaveFileButton.Text = "Save File";
             this.UI_SaveFileButton.UseVisualStyleBackColor = true;
+            this.UI_SaveFileButton.Click += new System.EventHandler(this.UI_SaveFileButton_Click);
             // 
             // UI_InputBox
             // 
@@ -94,11 +96,12 @@
             this.UI_ListBox.Name = "UI_ListBox";
             this.UI_ListBox.Size = new System.Drawing.Size(120, 95);
             this.UI_ListBox.TabIndex = 6;
+            this.UI_ListBox.SelectedIndexChanged += new System.EventHandler(this.UI_ListBox_SelectedIndexChanged);
             // 
             // UI_TrackBar
             // 
             this.UI_TrackBar.Location = new System.Drawing.Point(244, 12);
-            this.UI_TrackBar.Maximum = 1;
+            this.UI_TrackBar.Maximum = 0;
             this.UI_TrackBar.Name = "UI_TrackBar";
             this.UI_TrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.UI_TrackBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -126,6 +129,10 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Text files|*.txt";
             // 
             // Form1
             // 
