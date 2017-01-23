@@ -95,22 +95,23 @@ namespace CMPE1600_ICA04
                 {
                     MessageBox.Show(error.Message, "ICA4", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                foreach (string n in openList)
+                {
+                    UI_ListBox.Items.Add(n);
+                }
+                UI_ListBox.SelectedIndex = 0;
+                UI_ListLabel.Text = UI_ListBox.SelectedItem.ToString();
+                UI_InputBox.Clear();
+                UI_InputBox.Focus();
+                if (UI_ListBox.Items.Count == 0)
+                {
+                    UI_TrackBar.SetRange(0, 0);
+                }
+                else
+                    UI_TrackBar.SetRange(0, UI_ListBox.Items.Count - 1);
             }
 
-            foreach (string n in openList)
-            {
-                UI_ListBox.Items.Add(n);
-            }
-            UI_ListBox.SelectedIndex = 0;
-            UI_ListLabel.Text = UI_ListBox.SelectedItem.ToString();
-            UI_InputBox.Clear();
-            UI_InputBox.Focus();
-            if (UI_ListBox.Items.Count == 0)
-            {
-                UI_TrackBar.SetRange(0, 0);
-            }
-            else
-                UI_TrackBar.SetRange(0, UI_ListBox.Items.Count - 1);
+            
         }
 
         private void UI_SaveFileButton_Click(object sender, EventArgs e)

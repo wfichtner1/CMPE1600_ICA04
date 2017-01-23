@@ -129,6 +129,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "\"Text files|*.txt|All files|*.*\"";
             // 
             // saveFileDialog1
             // 
