@@ -23,7 +23,7 @@ namespace CMPE1600_ICA04
             //Adds item from input box into list
             UI_ListBox.Items.Add(UI_InputBox.Text);
             //sets selected item in box to 0
-            UI_ListBox.SelectedIndex = 0;
+            UI_ListBox.SelectedIndex = UI_ListBox.Items.Count - 1;
             //sets the selected item as label below box
             UI_ListLabel.Text = UI_ListBox.SelectedItem.ToString();
             //clears input box and puts focus on it
@@ -60,10 +60,8 @@ namespace CMPE1600_ICA04
             else
             {
                 UI_TrackBar.SetRange(0, UI_ListBox.Items.Count - 1);
-                UI_ListBox.SelectedIndex = 0;
+                UI_ListBox.SelectedIndex = UI_ListBox.Items.Count - 1;
             }
-
-
         }
 
         private void UI_ListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,7 +114,27 @@ namespace CMPE1600_ICA04
 
         private void UI_SaveFileButton_Click(object sender, EventArgs e)
         {
-            
+            StreamWriter swOutputFile;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    swOutputFile = new StreamWriter(saveFileDialog1.FileName);
+
+                    foreach (string n in UI_ListBox.Items)
+                    {
+                        swOutputFile.WriteLine(n);
+                    }
+
+                    swOutputFile.Close();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message, "ICA4", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                Text = saveFileDialog1.FileName;
+            }
         }
     }
 }
